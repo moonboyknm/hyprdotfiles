@@ -1,0 +1,94 @@
+/*
+ * Rofi File Search Theme
+ * Based on Neon Red Theme
+ */
+
+* {
+    /* --- Colors --- */
+    background:                  rgba(0, 0, 0, 0.9);
+    background-alt:              rgba(0, 0, 0, 0.0);
+    foreground:                  #FFFFFF;
+    selected:                    #ff0000;
+    red:                         #ff0000;
+    border-color:                @red;
+
+    /* --- General --- */
+    background-color:            @background;
+    text-color:                  @foreground;
+    border:                      0;
+    margin:                      0;
+    padding:                     0;
+    spacing:                     0;
+    font:                        "JetBrainsMono Nerd Font 12";
+}
+
+window {
+    width:                       45%;
+    location:                    center;
+    anchor:                      center;
+    border:                      2px;
+    border-radius:               15px;
+    border-color:                @border-color;
+    padding:                     10px;
+    transparency:                "real";
+}
+
+mainbox {
+    children:                    [ inputbar, listview ];
+    spacing:                     10px;
+    padding:                     10px;
+}
+
+inputbar {
+    enabled:                     true;
+    children:                    [ entry ];
+    background-color:            transparent;
+    margin:                      0px;
+    padding:                     0px;
+    border:                      0px;
+}
+
+entry {
+    enabled:                     true;
+    background-color:            transparent;
+    text-color:                  transparent;
+    placeholder:                 "";
+    padding:                     0px;
+}
+
+listview {
+    layout:                      vertical;
+    spacing:                     5px;
+    lines:                       10;
+    columns:                     1;
+    fixed-height:                false;
+    scrollbar:                   false;
+    background-color:            transparent;
+}
+
+element {
+    orientation:                 horizontal;
+    padding:                     10px;
+    border-radius:               8px;
+    background-color:            transparent;
+    cursor:                      pointer;
+    spacing:                     10px;
+}
+
+element-text {
+    background-color:            inherit;
+    text-color:                  inherit;
+    vertical-align:              0.5;
+}
+
+element-icon {
+    background-color:            inherit;
+    text-color:                  inherit;
+    size:                        1.5em;
+    vertical-align:              0.5;
+}
+
+element.selected {
+    background-color:            @selected;
+    text-color:                  #000000;
+}
