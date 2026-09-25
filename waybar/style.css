@@ -1,0 +1,357 @@
+/* ============================================================
+   WAYBAR — NEON RED / BLACK
+   ============================================================ */
+
+* {
+  border: none;
+  border-radius: 0;
+  font-family: "JetBrainsMono Nerd Font", monospace;
+  font-size: 15px;
+  min-height: 0;
+}
+
+window#waybar {
+  background-color: rgba(0, 0, 0, 0.9);
+  border: 2px solid #ff0040;
+  border-radius: 0;
+  color: #ffffff;
+  transition-property: background-color;
+  transition-duration: 0.5s;
+}
+
+window#waybar.hidden {
+  opacity: 0.2;
+}
+
+
+/* ============================================================
+   WORKSPACES
+   ============================================================ */
+
+#workspaces {
+  background: #000000;
+  margin: 2px 5px;
+  padding: 0 5px;
+}
+
+#workspaces button {
+  padding: 0 8px;
+  background-color: transparent;
+  color: #ffffff;
+  border: none;
+  border-radius: 0;
+  transition: all 0.3s ease;
+}
+
+#workspaces button:hover {
+  background: rgba(255, 0, 64, 0.2);
+  color: #ff0040;
+  text-shadow: 0 0 5px #ff0040;
+}
+
+#workspaces button.active {
+  background-color: #ff0040;
+  color: #000000;
+  font-weight: bold;
+  box-shadow: 0 0 8px #ff0040;
+}
+
+#workspaces button.focused {
+  background-color: #ff0040;
+  color: #000000;
+}
+
+#workspaces button.urgent {
+  background-color: #ff4444;
+  color: #ffffff;
+  animation: blink 0.5s linear infinite alternate;
+}
+
+@keyframes blink {
+  to {
+    background-color: #ffffff;
+    color: #ff0040;
+  }
+}
+
+
+/* ============================================================
+   WINDOW TITLE
+   ============================================================ */
+
+#window {
+  background: #000000;
+  margin: 2px 5px;
+  padding: 2px 15px;
+  color: #ffffff;
+}
+
+
+/* ============================================================
+   CLOCK
+   ============================================================ */
+
+#clock {
+  background: #000000;
+  margin: 2px 5px;
+  padding: 2px 15px;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+
+/* ============================================================
+   SPOTIFY
+   ============================================================ */
+
+#custom-spotify {
+  background: #000000;
+  margin: 2px 5px;
+  padding: 2px 10px;
+  color: #ffffff;
+}
+
+
+/* ============================================================
+   COLLAPSIBLE SYSTEM GROUP
+   ============================================================ */
+
+/*
+   COLLAPSED:
+
+                     [ ⚙ ]
+
+   EXPANDED:
+
+             [ ⚙ ][ 🔔 ][ ☕ ][ 🔊 ][  ][  ][  ][ tray ]
+
+   The group lives on the RIGHT side of the bar, so the drawer
+   opens toward the LEFT.
+*/
+
+#system {
+  background: #000000;
+  margin: 2px 5px;
+  padding: 0;
+  color: #ffffff;
+}
+
+
+/*
+   The leader is the ONE thing that remains visible when the
+   drawer is closed.
+*/
+
+#custom-system-toggle {
+  background: #000000;
+  margin: 2px 0;
+  padding: 2px 9px;
+  color: #ffffff;
+  transition: all 0.2s ease;
+}
+
+#custom-system-toggle:hover {
+  background: rgba(255, 0, 64, 0.15);
+  color: #ff0040;
+  text-shadow: 0 0 5px #ff0040;
+}
+
+
+/*
+   WAYBAR adds .system-drawer-child to the hidden/revealed
+   modules.
+
+   IMPORTANT:
+   No horizontal margins here.
+
+   Margins on drawer children can cause awkward gaps/geometry
+   problems while the drawer is animating.
+*/
+
+#system .system-drawer-child {
+  background: #000000;
+  margin: 2px 0;
+  padding: 2px 8px;
+  color: #ffffff;
+}
+
+
+/*
+   Keep the expanded group visually unified.
+*/
+
+#system.expanded {
+  background: #000000;
+}
+
+
+/* ============================================================
+   NOTIFICATIONS
+   ============================================================ */
+
+#custom-swaync {
+  background: #000000;
+  color: #ffffff;
+  padding: 2px 8px;
+}
+
+#custom-swaync:hover {
+  color: #ff0040;
+}
+
+
+/* ============================================================
+   IDLE INHIBITOR
+   ============================================================ */
+
+#custom-idle_inhibitor {
+  background: #000000;
+  color: #ffffff;
+  padding: 2px 8px;
+}
+
+#custom-idle_inhibitor.awake {
+  background-color: rgba(255, 0, 64, 0.3);
+  color: #ff0040;
+}
+
+#custom-idle_inhibitor.idle {
+  background: #000000;
+  color: #ffffff;
+}
+
+
+/* ============================================================
+   AUDIO MENU
+   ============================================================ */
+
+#custom-audio {
+  background: #000000;
+  color: #ffffff;
+  padding: 2px 8px;
+}
+
+#custom-audio:hover {
+  color: #ff0040;
+}
+
+
+/* ============================================================
+   BLUETOOTH
+   ============================================================ */
+
+#custom-bluetooth {
+  background: #000000;
+  color: #ffffff;
+  padding: 2px 8px;
+}
+
+#custom-bluetooth:hover {
+  color: #ff0040;
+}
+
+
+/* ============================================================
+   PULSEAUDIO
+   ============================================================ */
+
+#pulseaudio {
+  background: #000000;
+  color: #ffffff;
+  padding: 2px 8px;
+}
+
+#pulseaudio:hover {
+  color: #ff0040;
+}
+
+#pulseaudio.muted {
+  background: rgba(102, 102, 102, 0.2);
+  color: #666666;
+}
+
+
+/* ============================================================
+   BATTERY
+   ============================================================ */
+
+#battery {
+  background: #000000;
+  color: #ffffff;
+  padding: 2px 8px;
+}
+
+#battery.charging,
+#battery.plugged {
+  color: #ffffff;
+}
+
+#battery.critical:not(.charging) {
+  background-color: #ff4444;
+  color: #ffffff;
+  animation: blink 0.5s linear infinite alternate;
+}
+
+
+/* ============================================================
+   SYSTEM TRAY
+   ============================================================ */
+
+#tray {
+  background: #000000;
+  color: #ffffff;
+  padding: 2px 8px;
+}
+
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+  background-color: #ff0040;
+}
+
+
+/* ============================================================
+   WAYBAR MODE
+   ============================================================ */
+
+#mode {
+  background: #000000;
+  border: 1px solid #ff0040;
+  border-radius: 0;
+  margin: 2px 5px;
+  padding: 2px 15px;
+  color: #ffffff;
+}
+
+
+/* ============================================================
+   TOOLTIPS
+   ============================================================ */
+
+tooltip {
+  background: #000000;
+  border: 1px solid #ff0040;
+  border-radius: 0;
+  color: #ffffff;
+}
+
+tooltip label {
+  color: #ffffff;
+}
+
+
+/* ============================================================
+   LEGACY CUSTOM VOLUME
+   ============================================================ */
+
+#custom-volume {
+  padding: 0 10px;
+  color: #cdd6f4;
+}
+
+#custom-volume.muted {
+  color: #f38ba8;
+}
